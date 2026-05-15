@@ -50,8 +50,8 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 16250px;
-  height: 7500px;
+  width: 5200px;
+  height: 2400px;
   overflow: hidden;
   isolation: isolate;
   transform: translate(-50%, -50%) scale(var(--stage-scale));
@@ -63,27 +63,25 @@ body {
   position: absolute;
   z-index: 1;
   inset: 0;
-  width: 16250px;
-  height: 7500px;
+  width: 5200px;
+  height: 2400px;
   object-fit: cover;
   pointer-events: none;
-  transform: translateZ(0);
 }
 
 .scene-selection {
   z-index: 20;
   opacity: 0;
-  will-change: opacity;
 }
 
 .page-paper {
   position: absolute;
-  left: 5610px;
-  top: 171px;
-  width: 5050px;
-  height: 7130px;
-  border: 34px solid #111111;
-  border-radius: 184px;
+  left: 1795.2px;
+  top: 54.72px;
+  width: 1616px;
+  height: 2281.6px;
+  border: 10.88px solid #111111;
+  border-radius: 58.88px;
   pointer-events: none;
   z-index: 2;
   background: #ffffff;
@@ -91,11 +89,11 @@ body {
 
 .page-clip {
   position: absolute;
-  left: 5644px;
-  top: 205px;
-  width: 4982px;
-  height: 7062px;
-  border-radius: 150px;
+  left: 1806.08px;
+  top: 65.6px;
+  width: 1594.24px;
+  height: 2259.84px;
+  border-radius: 48px;
   overflow: hidden;
   z-index: 3;
   background: #ffffff;
@@ -149,10 +147,10 @@ button {
   position: absolute;
   left: var(--x);
   top: var(--y);
-  width: 1120px;
+  width: 358.4px;
   aspect-ratio: 1;
   padding: 0;
-  border: 64px solid transparent;
+  border: 20.48px solid transparent;
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
@@ -169,8 +167,8 @@ button {
 .color-button.is-active {
   border-color: rgba(255, 255, 255, 0.92);
   box-shadow:
-    0 0 0 34px rgba(38, 28, 20, 0.85),
-    0 60px 148px rgba(48, 31, 21, 0.22);
+    0 0 0 10.88px rgba(38, 28, 20, 0.85),
+    0 19.2px 47.36px rgba(48, 31, 21, 0.22);
   outline: 0;
   transform: translate(-50%, -50%) scale(1.05);
 }
@@ -184,7 +182,7 @@ button {
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center;
-  filter: drop-shadow(0 52px 36px rgba(54, 38, 24, 0.12));
+  filter: drop-shadow(0 16.64px 11.52px rgba(54, 38, 24, 0.12));
   transition:
     filter 150ms ease,
     transform 150ms ease;
@@ -203,44 +201,44 @@ button {
   outline: 0;
   transform: translate(-50%, -50%) scale(1.08) rotate(var(--active-tilt, 0deg));
   filter:
-    drop-shadow(0 0 40px rgba(255, 255, 255, 0.95))
-    drop-shadow(0 68px 46px rgba(54, 38, 24, 0.2));
+    drop-shadow(0 0 12.8px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 21.76px 14.72px rgba(54, 38, 24, 0.2));
 }
 
 .tool-brush {
-  left: 12824px;
-  top: 4091px;
-  width: 2914px;
+  left: 4103.68px;
+  top: 1309.12px;
+  width: 932.48px;
   --active-tilt: -2deg;
 }
 
 .tool-pencil {
-  left: 14784px;
-  top: 4224px;
-  width: 1621px;
+  left: 4730.88px;
+  top: 1351.68px;
+  width: 518.72px;
   --active-tilt: 2deg;
 }
 
 .tool-eraser {
-  left: 12711px;
-  top: 6185px;
-  width: 1982px;
+  left: 4067.52px;
+  top: 1979.2px;
+  width: 634.24px;
   --active-tilt: -2deg;
 }
 
 .tool-marker {
-  left: 14780px;
-  top: 6184px;
-  width: 1567px;
+  left: 4729.6px;
+  top: 1978.88px;
+  width: 501.44px;
   --active-tilt: 2deg;
 }
 
 .card-button {
   position: absolute;
   z-index: 7;
-  left: 15270px;
-  top: 1990px;
-  width: 1260px;
+  left: 4886.4px;
+  top: 636.8px;
+  width: 403.2px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -248,7 +246,7 @@ button {
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center;
-  filter: drop-shadow(0 52px 36px rgba(54, 38, 24, 0.12));
+  filter: drop-shadow(0 16.64px 11.52px rgba(54, 38, 24, 0.12));
   transition:
     filter 150ms ease,
     transform 150ms ease;
@@ -266,16 +264,16 @@ button {
   outline: 0;
   transform: translate(-50%, -50%) scale(1.08) rotate(2deg);
   filter:
-    drop-shadow(0 0 40px rgba(255, 255, 255, 0.95))
-    drop-shadow(0 68px 46px rgba(54, 38, 24, 0.2));
+    drop-shadow(0 0 12.8px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 21.76px 14.72px rgba(54, 38, 24, 0.2));
 }
 
 .selection-back-button {
   position: absolute;
   z-index: 32;
-  left: 1126px;
-  top: 845px;
-  width: 1422px;
+  left: 360.32px;
+  top: 270.4px;
+  width: 455.04px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -284,7 +282,7 @@ button {
   pointer-events: none;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center;
-  filter: drop-shadow(0 52px 36px rgba(54, 38, 24, 0.12));
+  filter: drop-shadow(0 16.64px 11.52px rgba(54, 38, 24, 0.12));
   transition:
     filter 150ms ease,
     opacity 160ms ease,
@@ -303,8 +301,8 @@ button {
   outline: 0;
   transform: translate(-50%, -50%) scale(1.08);
   filter:
-    drop-shadow(0 0 40px rgba(255, 255, 255, 0.95))
-    drop-shadow(0 68px 46px rgba(54, 38, 24, 0.2));
+    drop-shadow(0 0 12.8px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 21.76px 14.72px rgba(54, 38, 24, 0.2));
 }
 
 .drawing-select-buttons {
@@ -316,11 +314,11 @@ button {
 
 .drawing-select-button {
   position: absolute;
-  width: 1760px;
-  height: 2520px;
+  width: 563.2px;
+  height: 806.4px;
   padding: 0;
   border: 0;
-  border-radius: 170px;
+  border-radius: 54.4px;
   background: transparent;
   cursor: pointer;
   opacity: 0;
@@ -339,21 +337,21 @@ button {
   outline: 0;
   transform: translate(-50%, -50%) scale(1.035);
   box-shadow:
-    0 0 0 34px rgba(255, 255, 255, 0.92),
-    0 0 0 66px rgba(26, 21, 17, 0.84),
-    0 56px 130px rgba(0, 0, 0, 0.18);
+    0 0 0 10.88px rgba(255, 255, 255, 0.92),
+    0 0 0 21.12px rgba(26, 21, 17, 0.84),
+    0 17.92px 41.6px rgba(0, 0, 0, 0.18);
 }
 
-.page-slot-1 { left: 3280px; top: 2220px; }
-.page-slot-2 { left: 5700px; top: 2220px; }
-.page-slot-3 { left: 8120px; top: 2220px; }
-.page-slot-4 { left: 10540px; top: 2220px; }
-.page-slot-5 { left: 12960px; top: 2220px; }
-.page-slot-6 { left: 3280px; top: 5268px; }
-.page-slot-7 { left: 5700px; top: 5268px; }
-.page-slot-8 { left: 8120px; top: 5268px; }
-.page-slot-9 { left: 10540px; top: 5268px; }
-.page-slot-10 { left: 12960px; top: 5268px; }
+.page-slot-1 { left: 1049.6px; top: 710.4px; }
+.page-slot-2 { left: 1824px; top: 710.4px; }
+.page-slot-3 { left: 2598.4px; top: 710.4px; }
+.page-slot-4 { left: 3372.8px; top: 710.4px; }
+.page-slot-5 { left: 4147.2px; top: 710.4px; }
+.page-slot-6 { left: 1049.6px; top: 1685.76px; }
+.page-slot-7 { left: 1824px; top: 1685.76px; }
+.page-slot-8 { left: 2598.4px; top: 1685.76px; }
+.page-slot-9 { left: 3372.8px; top: 1685.76px; }
+.page-slot-10 { left: 4147.2px; top: 1685.76px; }
 
 .game-stage.is-selecting .scene-selection {
   opacity: 1;

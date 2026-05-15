@@ -15,8 +15,8 @@ const colorButtons = [...document.querySelectorAll(".color-button")];
 const toolButtons = [...document.querySelectorAll(".tool-button")];
 const drawingSelectButtons = [...document.querySelectorAll(".drawing-select-button")];
 
-const STAGE_WIDTH = 16250;
-const STAGE_HEIGHT = 7500;
+const STAGE_WIDTH = 5200;
+const STAGE_HEIGHT = 2400;
 const PAGE_COUNT = 10;
 const PAGE_ASSETS = Array.from({ length: PAGE_COUNT }, (_, index) => {
   const page = String(index + 1);
