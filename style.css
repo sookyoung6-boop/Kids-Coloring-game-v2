@@ -1,0 +1,381 @@
+:root {
+  --stage-scale: 1;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  user-select: none;
+}
+
+@supports (height: 100svh) {
+  body,
+  .game-shell {
+    height: 100svh;
+    min-height: 100svh;
+  }
+}
+
+.game-shell {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 0;
+}
+
+.game-stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 16250px;
+  height: 7500px;
+  overflow: hidden;
+  isolation: isolate;
+  transform: translate(-50%, -50%) scale(var(--stage-scale));
+  transform-origin: center center;
+  touch-action: none;
+}
+
+.scene-layer {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 16250px;
+  height: 7500px;
+  object-fit: cover;
+  pointer-events: none;
+  transform: translateZ(0);
+}
+
+.scene-selection {
+  z-index: 20;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.page-paper {
+  position: absolute;
+  left: 5610px;
+  top: 171px;
+  width: 5050px;
+  height: 7130px;
+  border: 34px solid #111111;
+  border-radius: 184px;
+  pointer-events: none;
+  z-index: 2;
+  background: #ffffff;
+}
+
+.page-clip {
+  position: absolute;
+  left: 5644px;
+  top: 205px;
+  width: 4982px;
+  height: 7062px;
+  border-radius: 150px;
+  overflow: hidden;
+  z-index: 3;
+  background: #ffffff;
+  touch-action: none;
+}
+
+.paint-layer,
+.active-paint-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.paint-layer {
+  z-index: 1;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.active-paint-layer {
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.selected-page-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+.color-palette,
+.tool-buttons {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+button {
+  font: inherit;
+}
+
+.color-button {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 1120px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 64px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
+.color-button:hover,
+.color-button:focus-visible,
+.color-button.is-active {
+  border-color: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 0 0 34px rgba(38, 28, 20, 0.85),
+    0 60px 148px rgba(48, 31, 21, 0.22);
+  outline: 0;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.tool-button {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center;
+  filter: drop-shadow(0 52px 36px rgba(54, 38, 24, 0.12));
+  transition:
+    filter 150ms ease,
+    transform 150ms ease;
+}
+
+.tool-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.tool-button:hover,
+.tool-button:focus-visible,
+.tool-button.is-active {
+  outline: 0;
+  transform: translate(-50%, -50%) scale(1.08) rotate(var(--active-tilt, 0deg));
+  filter:
+    drop-shadow(0 0 40px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 68px 46px rgba(54, 38, 24, 0.2));
+}
+
+.tool-brush {
+  left: 12824px;
+  top: 4091px;
+  width: 2914px;
+  --active-tilt: -2deg;
+}
+
+.tool-pencil {
+  left: 14784px;
+  top: 4224px;
+  width: 1621px;
+  --active-tilt: 2deg;
+}
+
+.tool-eraser {
+  left: 12711px;
+  top: 6185px;
+  width: 1982px;
+  --active-tilt: -2deg;
+}
+
+.tool-marker {
+  left: 14780px;
+  top: 6184px;
+  width: 1567px;
+  --active-tilt: 2deg;
+}
+
+.card-button {
+  position: absolute;
+  z-index: 7;
+  left: 15270px;
+  top: 1990px;
+  width: 1260px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center;
+  filter: drop-shadow(0 52px 36px rgba(54, 38, 24, 0.12));
+  transition:
+    filter 150ms ease,
+    transform 150ms ease;
+}
+
+.card-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.card-button:hover,
+.card-button:focus-visible {
+  outline: 0;
+  transform: translate(-50%, -50%) scale(1.08) rotate(2deg);
+  filter:
+    drop-shadow(0 0 40px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 68px 46px rgba(54, 38, 24, 0.2));
+}
+
+.selection-back-button {
+  position: absolute;
+  z-index: 32;
+  left: 1126px;
+  top: 845px;
+  width: 1422px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center;
+  filter: drop-shadow(0 52px 36px rgba(54, 38, 24, 0.12));
+  transition:
+    filter 150ms ease,
+    opacity 160ms ease,
+    transform 150ms ease;
+}
+
+.selection-back-button img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.selection-back-button:hover,
+.selection-back-button:focus-visible {
+  outline: 0;
+  transform: translate(-50%, -50%) scale(1.08);
+  filter:
+    drop-shadow(0 0 40px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 68px 46px rgba(54, 38, 24, 0.2));
+}
+
+.drawing-select-buttons {
+  position: absolute;
+  inset: 0;
+  z-index: 31;
+  pointer-events: none;
+}
+
+.drawing-select-button {
+  position: absolute;
+  width: 1760px;
+  height: 2520px;
+  padding: 0;
+  border: 0;
+  border-radius: 170px;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.game-stage.is-selecting .drawing-select-button:hover,
+.game-stage.is-selecting .drawing-select-button:focus-visible,
+.game-stage.is-selecting .drawing-select-button.is-active {
+  opacity: 1;
+  outline: 0;
+  transform: translate(-50%, -50%) scale(1.035);
+  box-shadow:
+    0 0 0 34px rgba(255, 255, 255, 0.92),
+    0 0 0 66px rgba(26, 21, 17, 0.84),
+    0 56px 130px rgba(0, 0, 0, 0.18);
+}
+
+.page-slot-1 { left: 3280px; top: 2220px; }
+.page-slot-2 { left: 5700px; top: 2220px; }
+.page-slot-3 { left: 8120px; top: 2220px; }
+.page-slot-4 { left: 10540px; top: 2220px; }
+.page-slot-5 { left: 12960px; top: 2220px; }
+.page-slot-6 { left: 3280px; top: 5268px; }
+.page-slot-7 { left: 5700px; top: 5268px; }
+.page-slot-8 { left: 8120px; top: 5268px; }
+.page-slot-9 { left: 10540px; top: 5268px; }
+.page-slot-10 { left: 12960px; top: 5268px; }
+
+.game-stage.is-selecting .scene-selection {
+  opacity: 1;
+}
+
+.game-stage.is-selecting .drawing-select-button {
+  pointer-events: auto;
+}
+
+.game-stage.is-selecting .selection-back-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-stage.is-selecting .page-paper,
+.game-stage.is-selecting .page-clip,
+.game-stage.is-selecting .selected-page-art,
+.game-stage.is-selecting .paint-layer,
+.game-stage.is-selecting .active-paint-layer,
+.game-stage.is-selecting .color-palette,
+.game-stage.is-selecting .tool-buttons,
+.game-stage.is-selecting .card-button {
+  opacity: 0;
+  pointer-events: none;
+}

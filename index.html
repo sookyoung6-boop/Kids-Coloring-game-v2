@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Coloring Game" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="description" content="A touch-friendly browser coloring game." />
+    <meta name="theme-color" content="#f3dbc1" />
+    <link rel="preload" as="image" href="assets/background-fast.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/selection-background-fast.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/pages-fast/episode-1-10.png" fetchpriority="high" />
+    <title>Coloring Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell" aria-label="Jeu de coloriage">
+      <section class="game-stage" id="gameStage">
+        <img class="scene-layer scene-main" src="assets/background-fast.jpg" alt="" aria-hidden="true" draggable="false" decoding="sync" fetchpriority="high" />
+        <img class="scene-layer scene-selection" src="assets/selection-background-fast.jpg" alt="" aria-hidden="true" draggable="false" decoding="sync" fetchpriority="high" />
+
+        <div class="page-paper" aria-hidden="true"></div>
+        <div class="page-clip">
+          <canvas id="paintCanvas" class="paint-layer" aria-label="Zone de coloriage"></canvas>
+          <canvas id="activePaintCanvas" class="active-paint-layer" aria-label="Trait en cours"></canvas>
+          <img class="selected-page-art" id="selectedPageArt" src="assets/pages-fast/episode-1-10.png" alt="" aria-hidden="true" draggable="false" />
+        </div>
+
+        <div class="color-palette" aria-label="Couleurs">
+          <button class="color-button is-active" data-color="#ea5d49" style="--x: 871px; --y: 2682px" aria-label="Rouge"></button>
+          <button class="color-button" data-color="#d3f492" style="--x: 2290px; --y: 2563px" aria-label="Vert clair"></button>
+          <button class="color-button" data-color="#ed975d" style="--x: 1727px; --y: 3596px" aria-label="Orange"></button>
+          <button class="color-button" data-color="#518237" style="--x: 3392px; --y: 3417px" aria-label="Vert"></button>
+          <button class="color-button" data-color="#ff92de" style="--x: 2661px; --y: 4404px" aria-label="Rose"></button>
+          <button class="color-button" data-color="#f9e587" style="--x: 3905px; --y: 4763px" aria-label="Jaune"></button>
+          <button class="color-button" data-color="#c4c4c4" style="--x: 2385px; --y: 5568px" aria-label="Gris"></button>
+          <button class="color-button" data-color="#cf95fc" style="--x: 3629px; --y: 5984px" aria-label="Violet"></button>
+          <button class="color-button" data-color="#8bbfef" style="--x: 2523px; --y: 6719px" aria-label="Bleu"></button>
+        </div>
+
+        <div class="tool-buttons" aria-label="Outils">
+          <button class="tool-button tool-brush is-active" data-tool="brush" aria-label="Pinceau">
+            <img src="assets/pinceaux.png" alt="" draggable="false" />
+          </button>
+          <button class="tool-button tool-pencil" data-tool="pencil" aria-label="Crayon">
+            <img src="assets/crayon.png" alt="" draggable="false" />
+          </button>
+          <button class="tool-button tool-eraser" data-tool="eraser" aria-label="Gomme">
+            <img src="assets/gomme.png" alt="" draggable="false" />
+          </button>
+          <button class="tool-button tool-marker" data-tool="marker" aria-label="Feutre">
+            <img src="assets/feutre.png" alt="" draggable="false" />
+          </button>
+        </div>
+
+        <button class="card-button" id="cardSelectButton" type="button" aria-label="Choisir un dessin a colorier">
+          <img src="assets/cards-button.png" alt="" draggable="false" />
+        </button>
+
+        <button class="selection-back-button" id="selectionBackButton" type="button" aria-label="Retour au coloriage">
+          <img src="assets/back-arrow-button.png" alt="" draggable="false" />
+        </button>
+
+        <div class="drawing-select-buttons" aria-label="Choix du dessin">
+          <button class="drawing-select-button page-slot-1 is-active" type="button" data-page="10" aria-label="Dessin 10"></button>
+          <button class="drawing-select-button page-slot-2" type="button" data-page="1" aria-label="Dessin 1"></button>
+          <button class="drawing-select-button page-slot-3" type="button" data-page="2" aria-label="Dessin 2"></button>
+          <button class="drawing-select-button page-slot-4" type="button" data-page="3" aria-label="Dessin 3"></button>
+          <button class="drawing-select-button page-slot-5" type="button" data-page="9" aria-label="Dessin 9"></button>
+          <button class="drawing-select-button page-slot-6" type="button" data-page="4" aria-label="Dessin 4"></button>
+          <button class="drawing-select-button page-slot-7" type="button" data-page="5" aria-label="Dessin 5"></button>
+          <button class="drawing-select-button page-slot-8" type="button" data-page="6" aria-label="Dessin 6"></button>
+          <button class="drawing-select-button page-slot-9" type="button" data-page="7" aria-label="Dessin 7"></button>
+          <button class="drawing-select-button page-slot-10" type="button" data-page="8" aria-label="Dessin 8"></button>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
